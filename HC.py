@@ -52,3 +52,9 @@ feature_mtx [0:5]
 dist_matrix = distance_matrix(feature_mtx,feature_mtx) 
 print(dist_matrix)
 
+#==============================agglomerative function from scikit learn to cluster===========================
+agglom = AgglomerativeClustering(n_clusters = 6, linkage = 'complete')
+agglom.fit(feature_mtx)
+agglom.labels_
+
+
