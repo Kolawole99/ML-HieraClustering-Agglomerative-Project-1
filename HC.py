@@ -37,3 +37,9 @@ pdf.head(5)
 #===========================================feature selection===================================
 featureset = pdf[['engine_s',  'horsepow', 'wheelbas', 'width', 'length', 'curb_wgt', 'fuel_cap', 'mpg']]
 
+#============================================normalization===================================
+from sklearn.preprocessing import MinMaxScaler
+x = featureset.values #returns a numpy array
+min_max_scaler = MinMaxScaler()
+feature_mtx = min_max_scaler.fit_transform(x)
+feature_mtx [0:5]
