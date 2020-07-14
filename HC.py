@@ -11,4 +11,12 @@ from sklearn.datasets.samples_generator import make_blobs
 #%matplotlib inline #useful in jupyter notebooks
 
 
-#=======================================
+#==========================================READING THE DATA=============================================
+filename = 'cars_clus.csv'
+#Read csv
+pdf = pd.read_csv(filename)
+print ("Shape of dataset: ", pdf.shape)
+df = pdf.head(5)
+print(df)
+
+
