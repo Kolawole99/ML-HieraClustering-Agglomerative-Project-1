@@ -8,7 +8,7 @@ from sklearn import manifold, datasets
 from sklearn.cluster import AgglomerativeClustering 
 from sklearn.datasets.samples_generator import make_blobs 
 from sklearn.preprocessing import MinMaxScaler
-import matplotlib.cm as cm
+import matplotlib.cm as acm
 #%matplotlib inline #useful in jupyter notebooks
 
 
@@ -63,7 +63,7 @@ pdf.head()
 
 #=============================================plotting the cluster image=================================
 n_clusters = max(agglom.labels_)+1
-colors = cm.rainbow(np.linspace(0, 1, n_clusters))
+colors = acm.rainbow(np.linspace(0, 1, n_clusters))
 cluster_labels = list(range(0, n_clusters))
 
 # Create a figure of size 6 inches by 4 inches.
