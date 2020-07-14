@@ -61,3 +61,22 @@ agglom.labels_
 pdf['cluster_'] = agglom.labels_
 pdf.head()
 
+#=============================================plotting the cluster image=================================
+n_clusters = max(agglom.labels_)+1
+colors = cm.rainbow(np.linspace(0, 1, n_clusters))
+cluster_labels = list(range(0, n_clusters))
+
+# Create a figure of size 6 inches by 4 inches.
+plt.figure(figsize=(16,14))
+for color, label in zip(colors, cluster_labels):
+    subset = pdf[pdf.cluster_ == label]
+    for i in subset.index:
+            plt.text(subset.horsepow[i], subset.mpg[i],str(subset['model'][i]), rotation=25) 
+    plt.scatter(subset.horsepow, subset.mpg, s= subset.price*10, c=color, label='cluster'+str(label),alpha=0.5)
+#    plt.scatter(subset.horsepow, subset.mpg)
+plt.legend()
+plt.title('Clusters')
+plt.xlabel('horsepow')
+plt.ylabel('mpg')
+plt.show()
+
