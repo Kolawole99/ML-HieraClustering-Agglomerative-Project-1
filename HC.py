@@ -87,3 +87,15 @@ agg_cars = pdf.groupby(['cluster_','type'])["horsepow","engine_s","mpg","price"]
 agg_cars
 
 
+#=======================We plot again using the new distribution set-up===================
+plt.figure(figsize=(16,10))
+for color, label in zip(colors, cluster_labels):
+    subset = agg_cars.loc[(label,),]
+    for i in subset.index:
+        plt.text(subset.loc[i][0]+5, subset.loc[i][2], 'type='+str(int(i)) + ', price='+str(int(subset.loc[i][3]))+'k')
+    plt.scatter(subset.horsepow, subset.mpg, s=subset.price*20, c=color, label='cluster'+str(label))
+plt.legend()
+plt.title('Clusters')
+plt.xlabel('horsepow')
+plt.ylabel('mpg')
+plt.show()
