@@ -57,4 +57,7 @@ agglom = AgglomerativeClustering(n_clusters = 6, linkage = 'complete')
 agglom.fit(feature_mtx)
 agglom.labels_
 
+#=======================add a new field to our dataframe to show the cluster they belong to==================
+pdf['cluster_'] = agglom.labels_
+pdf.head()
 
